@@ -14,30 +14,41 @@ public class ManagerTest {
         manager = new Manager("Melinda", "JF123456", 120000.00, "Operations");
     }
 
+    //  test getName
     @Test
     public void canGetName(){
         assertEquals("Melinda", manager.getName());
     }
 
-//  test getName
 
 //    test getSalary
-
     @Test
     public void canGetSalary(){
-        assertEquals();
-
+        assertEquals(120000.00, manager.getSalary());
     }
 
 //    test getNatInsurance
+    @Test
+    public void canGetNatInsurance(){
+        assertEquals( "JF123456", manager.getNatinsurance());
+    }
 
 //    test getDeptName
-
-
+    @Test
+    public void canDeptName() {
+        assertEquals("Operations", manager.getDeptName());
+    }
 
 //    test raiseSalary
+    @Test
+    public void canGetRaiseSalary(){
+        manager.raiseSalary();
+        assertEquals(121200, manager.getRaiseSalary(), 0.1);
+    }
 
 //    test payBonus
-
-
+    @Test
+    public void canGetPayBonus(){
+      assertEquals(121200, manager.getPayBonus());
+    }
 }
