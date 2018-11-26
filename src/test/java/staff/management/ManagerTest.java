@@ -14,41 +14,58 @@ public class ManagerTest {
         manager = new Manager("Melinda", "JF123456", 120000.00, "Operations");
     }
 
-    //  test getName
     @Test
     public void canGetName(){
         assertEquals("Melinda", manager.getName());
     }
 
-
-//    test getSalary
     @Test
     public void canGetSalary(){
-        assertEquals(120000.00, manager.getSalary());
+        assertEquals(120000.00, manager.getSalary(), 0.01);
     }
 
-//    test getNatInsurance
     @Test
     public void canGetNatInsurance(){
         assertEquals( "JF123456", manager.getNatinsurance());
     }
 
-//    test getDeptName
     @Test
     public void canDeptName() {
         assertEquals("Operations", manager.getDeptName());
     }
 
-//    test raiseSalary
     @Test
-    public void canGetRaiseSalary(){
-        manager.raiseSalary();
-        assertEquals(121200, manager.getRaiseSalary(), 0.1);
+    public void canRaiseSalary(){
+        manager.raiseSalary(0.01);
+        assertEquals(121200, manager.getSalary(), 0.01);
     }
 
-//    test payBonus
+    @Test
+    public void canNotReduceSalaryWithRaiseSalary(){
+        manager.raiseSalary(-0.01);
+        assertEquals(120000, manager.getSalary(), 0.01);
+    }
+
     @Test
     public void canGetPayBonus(){
-      assertEquals(121200, manager.getPayBonus());
+      assertEquals(1200, manager.payBonus(), 0.1);
+    }
+
+    @Test
+    public void canSetName(){
+        manager.setName("Luke");
+        assertEquals("Luke", manager.getName());
+    }
+
+    @Test
+    public void canNotSetEmptyName(){
+        manager.setName("");
+        assertEquals("Melinda", manager.getName());
+    }
+
+    @Test
+    public void canNotSetEmptyManySpaceslName(){
+        manager.setName("   ");
+        assertEquals("Melinda", manager.getName());
     }
 }

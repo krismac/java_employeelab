@@ -15,9 +15,8 @@ public class DirectorTest {
         director = new Director("Graham", "JF7891011", 150000.00, "Board", 250000.00);
     }
 
-    //    test getNatInsurance
     @Test
-    public void directorhasNI({
+    public void directorhasNI(){
         assertEquals("JF7891011", director.getNatinsurance());
     }
 
@@ -33,13 +32,13 @@ public class DirectorTest {
 
     @Test
     public void raiseSalary() {
-        director.raiseSalary();
-        assertEquals(X, director.getSalary(), 0.01);
+        director.raiseSalary(0.02);
+        assertEquals(153000, director.getSalary(), 0.01);
     }
 
     @Test
     public void payBonus() {
-        assertEquals(X, director.payBonus(), 0.01);
+        assertEquals(3000, director.payBonus(), 0.01);
     }
 
     @Test
