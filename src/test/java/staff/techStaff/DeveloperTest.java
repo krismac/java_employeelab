@@ -1,3 +1,4 @@
+package staff.techStaff;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,12 +30,12 @@ public class DeveloperTest {
 
     @Test
     public void raiseSalary() {
-        developer.raiseSalary();
-        assertEquals(X, developer.getSalary(), 0.01);
+        developer.raiseSalary(0.02);
+        assertEquals(26520, developer.getSalary(), 0.01);
     }
 
     @Test
     public void payBonus() {
-        assertEquals(X, developer.payBonus(), 0.01);
+        assertEquals(260, developer.payBonus(), 0.01);
     }
 }
